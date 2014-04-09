@@ -14,6 +14,7 @@ map <silent> <LocalLeader>nh :nohls<CR>
 inoremap jj <ESC>
 
 set hidden
+set softtabstop=2 tabstop=2 shiftwidth=2 expandtab smarttab
 set wrap
 set scrolloff=4
 set number
