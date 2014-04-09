@@ -5,6 +5,7 @@ map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
 map <silent> <LocalLeader>ff :CtrlP<CR>
 map <silent> <LocalLeader>fb :CtrlPBuffer<CR>
+map <silent> <LocalLeader>ww :FixWhitespace<CR>
 
 map <silent> <LocalLeader><CR> :tabnew<CR>
 map <silent> <LocalLeader>] gt
