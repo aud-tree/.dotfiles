@@ -1,4 +1,4 @@
-runtime .vim/bundle/vim-pathogen/autoload/pathogen.vim
+source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 map <silent> <LocalLeader>nf :NERDTreeFind<CR>
@@ -15,6 +15,8 @@ inoremap jj <ESC>
 set hidden
 set wrap
 set scrolloff=4
+set number
+set ruler
 
 syntax enable
 set background=dark
