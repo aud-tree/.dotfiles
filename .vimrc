@@ -20,7 +20,13 @@ set wrap
 set scrolloff=4
 set number
 set ruler
+set backspace=indent,eol,start
 
 syntax enable
 set background=dark
 colorscheme solarized
+
+let g:syntastic_quiet_messages = { "level": "warnings",
+                                 \ "type":  "style",
+                                 \ "regex": 'proprietary attribute',
+                                 \ "file":  '.*\.html$' }
