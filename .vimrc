@@ -69,7 +69,10 @@ let g:syntastic_quiet_messages = { "level": "warnings",
                                  \ "type":  "style",
                                  \ "regex": 'proprietary attribute',
                                  \ "file":  '.*\.html$' }
-let g:ctrlp_custom_ignore = { 'dir':  'node_modules'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = "/tmp/"
+let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\)$'
                             \ }
 
 " Functions
