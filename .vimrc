@@ -26,6 +26,10 @@ nnoremap          <leader>sv    :source $MYVIMRC<cr>
 inoremap          jj            <esc>l
 inoremap          jk            <esc>l
 inoremap          <esc>         <nop>
+inoremap          OA          <up>
+inoremap          OB          <down>
+inoremap          OC          <right>
+inoremap          OD          <left>
 
 " Autocommands (restart vim to apply changes)
 augroup VimscriptEdit
