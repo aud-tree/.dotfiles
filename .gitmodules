@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/vim-vroom"]
 	path = .vim/bundle/vim-vroom
 	url = git@github.com:skalnik/vim-vroom.git
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = git@github.com:ddollar/nerdcommenter.git
