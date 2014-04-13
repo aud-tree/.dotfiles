@@ -34,6 +34,7 @@ augroup VimscriptEdit
 augroup END
 
 " General settings
+filetype plugin indent on
 set hlsearch incsearch
 set hidden
 set showmatch
