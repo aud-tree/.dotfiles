@@ -11,6 +11,8 @@ nnoremap <silent> <leader>ff :CtrlP<cr>
 nnoremap <silent> <leader>fb :CtrlPBuffer<cr>
 nnoremap <silent> <leader>ww :FixWhitespace<cr>
 nnoremap <silent> <leader>rt :TagbarToggle<cr>
+nnoremap <silent> <leader>rb :VroomRunTestFile<cr>
+nnoremap <silent> <leader>rf :VroomRunNearestTest<cr>
 
 " Convenience mappings
 nnoremap <silent> <leader><cr>  :tabnew<cr>
@@ -74,5 +76,6 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = "/tmp/"
 let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\)$'
                             \ }
+let g:vroom_use_vimux = 1
 
 " Functions

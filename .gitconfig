@@ -1,0 +1,36 @@
+[user]
+	name = Audrey Schwarz
+	email = acbschwarz@gmail.com
+[alias]
+	st = status
+	pullr = pull --rebase
+	co = checkout
+[core]
+	excludesfile = /Users/ThoughtWorks/.gitignore_global
+	editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[credential]
+	helper = osxkeychain
+[color]
+  status = auto
+  ui = true
+[color "status"]
+  header = yellow
+  added = green
+  changed = blue
+  untracked = magenta
+  deleted = red
+[github]
+	user = audreyschwarz
+[push]
+	default = simple
+[merge]
+	tool = vimdiff
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
