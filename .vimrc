@@ -13,6 +13,7 @@ nnoremap <silent> <leader>ww :FixWhitespace<cr>
 nnoremap <silent> <leader>rt :TagbarToggle<cr>
 nnoremap <silent> <leader>rb :VroomRunTestFile<cr>
 nnoremap <silent> <leader>rf :VroomRunNearestTest<cr>
+nnoremap <silent> <leader>cv :VimuxCloseRunner<cr>
 
 " Convenience mappings
 nnoremap <silent> <leader><cr>  :tabnew<cr>
@@ -31,6 +32,14 @@ augroup VimscriptEdit
   autocmd!
   autocmd FileType vim nnoremap <silent> <buffer> q :q<cr>
   autocmd FileType vim nnoremap <buffer> <leader>ev <nop>
+augroup END
+
+augroup RainbowParens
+  autocmd!
+  autocmd VimEnter * RainbowParenthesesToggle
+  autocmd Syntax * RainbowParenthesesLoadRound
+  autocmd Syntax * RainbowParenthesesLoadSquare
+  autocmd Syntax * RainbowParenthesesLoadBraces
 augroup END
 
 " General settings
