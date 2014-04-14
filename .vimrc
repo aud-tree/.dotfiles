@@ -5,8 +5,8 @@ source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 " Plugin mappings
-nnoremap <silent> <leader>nf :NERDTreeFind<cr>
-nnoremap <silent> <leader>nt :NERDTreeToggle<cr>
+nnoremap <silent> <leader>nf :NERDTreeFind<cr><c-w>=
+nnoremap <silent> <leader>nt :NERDTreeToggle<cr><c-w>=
 nnoremap <silent> <leader>ff :CtrlP<cr>
 nnoremap <silent> <leader>fb :CtrlPBuffer<cr>
 nnoremap <silent> <leader>ww :FixWhitespace<cr>

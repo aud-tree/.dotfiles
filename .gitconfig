@@ -3,6 +3,8 @@
 	email = acbschwarz@gmail.com
 [alias]
 	st = status
+  dc = diff --cached
+  d = diff
 	pullr = pull --rebase
 	co = checkout
 [core]
@@ -20,7 +22,6 @@
   status = auto
   ui = true
 [color "status"]
-  header = yellow
   added = green
   changed = blue
   untracked = magenta
