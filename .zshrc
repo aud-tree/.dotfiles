@@ -13,6 +13,7 @@ ZSH_TMUX_AUTOSTART=true
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias b="bundle exec"
+alias bil="bundle install"
 alias brake="bundle exec rake"
 alias gs="git status"
 
