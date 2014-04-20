@@ -25,19 +25,16 @@ nnoremap <silent> <leader>ev    :vsplit $MYVIMRC<cr>
 nnoremap          <leader>sv    :source $MYVIMRC<cr>
 inoremap          jj            <esc>l
 inoremap          jk            <esc>l
-inoremap          <esc>         <nop>
 inoremap          OA          <up>
 inoremap          OB          <down>
 inoremap          OC          <right>
 inoremap          OD          <left>
+nnoremap          OA          <up>
+nnoremap          OB          <down>
+nnoremap          OC          <right>
+nnoremap          OD          <left>
 
 " Autocommands (restart vim to apply changes)
-augroup VimscriptEdit
-  autocmd!
-  autocmd FileType vim nnoremap <silent> <buffer> q :q<cr>
-  autocmd FileType vim nnoremap <buffer> <leader>ev <nop>
-augroup END
-
 augroup RainbowParens
   autocmd!
   autocmd VimEnter * RainbowParenthesesToggle
