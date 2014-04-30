@@ -8,6 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 TERM="xterm-256color"
 ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOQUIT=false
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -16,6 +17,14 @@ alias b="bundle exec"
 alias bil="bundle install"
 alias brake="bundle exec rake"
 alias gs="git status"
+
+# Remote pairing aliases
+alias rps="sudo rm -rf /tmp/pairing* && tmux -S /tmp/pairing new -s pairing"
+alias remote_pairing_start_session="rps"
+alias rpss="chgrp pairing /tmp/pairing"
+alias remote_pairing_share_socket="rpss"
+alias rpc="tmux -S /tmp/pairing a -t pairing"
+alias remote_pairing_connect="rpc"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -52,6 +61,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$PATH
+# Setup Android SDK
 export PATH=${PATH}:~/code/libraries_and_sdks/android-sdk-macosx/tools:~/code/libraries_and_sdks/android-sdk-macosx/platform-tools
 
 # Setup RbEnv
