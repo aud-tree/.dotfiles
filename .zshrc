@@ -62,7 +62,8 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$PATH
 # Setup Android SDK
-export PATH=${PATH}:~/code/libraries_and_sdks/android-sdk-macosx/tools:~/code/libraries_and_sdks/android-sdk-macosx/platform-tools
+android_sdk_path=~/code/libraries_and_sdks/android-sdk-macosx
+export PATH=$PATH:$android_sdk_path/tools:$android_sdk_path/platform-tools
 
 # Setup RbEnv
 eval "$(rbenv init -)"

@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/twentyfortyeight.vim"]
 	path = .vim/bundle/twentyfortyeight.vim
 	url = git@github.com:audreyschwarz/twentyfortyeight.vim.git
+[submodule ".vim/bundle/tern_for_vim"]
+	path = .vim/bundle/tern_for_vim
+	url = https://github.com/marijnh/tern_for_vim.git

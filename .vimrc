@@ -34,6 +34,17 @@ nnoremap          OB          <down>
 nnoremap          OC          <right>
 nnoremap          OD          <left>
 
+" Abbreviations
+cnoreabbrev Q q
+cnoreabbrev W w
+cnoreabbrev Wa wa
+cnoreabbrev wA wa
+cnoreabbrev WA wa
+cnoreabbrev Qa qa
+cnoreabbrev qA qa
+cnoreabbrev QA qa
+cnoreabbrev X x
+
 " Autocommands (restart vim to apply changes)
 augroup RainbowParens
   autocmd!
