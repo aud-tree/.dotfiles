@@ -13,7 +13,7 @@ nnoremap <silent> <leader>ww :FixWhitespace<cr>
 nnoremap <silent> <leader>rt :TagbarToggle<cr>
 nnoremap <silent> <leader>rb :VroomRunTestFile<cr>
 nnoremap <silent> <leader>rf :VroomRunNearestTest<cr>
-nnoremap <silent> <leader>cv :VimuxCloseRunner<cr>
+nnoremap <silent> <leader>vq :VimuxCloseRunner<cr>
 
 " Convenience mappings
 nnoremap <silent> <leader><cr>  :tabnew<cr>

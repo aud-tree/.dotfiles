@@ -10,9 +10,7 @@ TERM="xterm-256color"
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOQUIT=false
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Useful aliases
 alias b="bundle exec"
 alias bil="bundle install"
 alias brake="bundle exec rake"
@@ -25,6 +23,8 @@ alias rpss="chgrp pairing /tmp/pairing"
 alias remote_pairing_share_socket="rpss"
 alias rpc="tmux -S /tmp/pairing a -t pairing"
 alias remote_pairing_connect="rpc"
+
+alias fix_oh_my_zsh="sudo chown $USER $ZSH/.git/logs/refs/remotes/origin/master"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
