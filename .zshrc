@@ -67,3 +67,6 @@ export PATH=$PATH:$android_sdk_path/tools:$android_sdk_path/platform-tools
 
 # Setup RbEnv
 eval "$(rbenv init -)"
+
+# Setup Java
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_07.jdk/Contents/Home
