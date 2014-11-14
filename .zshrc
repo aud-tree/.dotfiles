@@ -70,3 +70,4 @@ eval "$(rbenv init -)"
 
 # Setup Java
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_07.jdk/Contents/Home
+export GROOVY_HOME=/usr/local/opt/groovy/libexec

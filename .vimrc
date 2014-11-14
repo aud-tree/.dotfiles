@@ -13,7 +13,7 @@ nnoremap <silent> <leader>ww :FixWhitespace<cr>
 nnoremap <silent> <leader>rt :TagbarToggle<cr>
 nnoremap <silent> <leader>rb :VroomRunTestFile<cr>
 nnoremap <silent> <leader>rf :VroomRunNearestTest<cr>
-nnoremap <silent> <leader>vq :VimuxCloseRunner<cr>
+nnoremap <silent> <leader>rq :VimuxCloseRunner<cr>
 
 " Convenience mappings
 nnoremap <silent> <leader><cr>  :tabnew<cr>
@@ -25,6 +25,7 @@ nnoremap <silent> <leader>ev    :vsplit $MYVIMRC<cr>
 nnoremap          <leader>sv    :source $MYVIMRC<cr>
 inoremap          jj            <esc>l
 inoremap          jk            <esc>l
+inoremap          <c-l>         <Space>=><Space>
 inoremap          OA          <up>
 inoremap          OB          <down>
 inoremap          OC          <right>
@@ -33,6 +34,10 @@ nnoremap          OA          <up>
 nnoremap          OB          <down>
 nnoremap          OC          <right>
 nnoremap          OD          <left>
+nnoremap          <c-h>         <c-w>h
+nnoremap          <c-j>         <c-w>j
+nnoremap          <c-k>         <c-w>k
+nnoremap          <c-l>         <c-w>l
 
 " Abbreviations
 cnoreabbrev Q q
