@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/tern_for_vim"]
 	path = .vim/bundle/tern_for_vim
 	url = https://github.com/marijnh/tern_for_vim.git
+[submodule ".vim/bundle/vim-puppet"]
+	path = .vim/bundle/vim-puppet
+	url = git://github.com/rodjek/vim-puppet.git
