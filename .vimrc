@@ -14,6 +14,7 @@ nnoremap <silent> <leader>rt :TagbarToggle<cr>
 nnoremap <silent> <leader>rb :VroomRunTestFile<cr>
 nnoremap <silent> <leader>rf :VroomRunNearestTest<cr>
 nnoremap <silent> <leader>rq :VimuxCloseRunner<cr>
+nnoremap <silent> <leader>rp :RainbowParenthesesLoadRound<cr> :RainbowParenthesesLoadSquare<cr> :RainbowParenthesesLoadBraces<cr> :RainbowParenthesesActivate<cr>hhh
 
 " Convenience mappings
 nnoremap <silent> <leader><cr>  :tabnew<cr>
@@ -49,15 +50,6 @@ cnoreabbrev Qa qa
 cnoreabbrev qA qa
 cnoreabbrev QA qa
 cnoreabbrev X x
-
-" Autocommands (restart vim to apply changes)
-augroup RainbowParens
-  autocmd!
-  autocmd VimEnter * RainbowParenthesesToggle
-  autocmd Syntax * RainbowParenthesesLoadRound
-  autocmd Syntax * RainbowParenthesesLoadSquare
-  autocmd Syntax * RainbowParenthesesLoadBraces
-augroup END
 
 " General settings
 filetype plugin indent on
@@ -104,5 +96,33 @@ let g:ctrlp_cache_dir = "/tmp/"
 let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\|.tmp\)$'
                             \ }
 let g:vroom_use_vimux = 1
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['129',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+" 129 = purple
+
+" Autocommands (restart vim to apply changes)
+augroup RainbowParens
+  autocmd!
+  autocmd VimEnter * RainbowParenthesesToggle
+  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadRound
+  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadSquare
+  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadBraces
+augroup END
 
 " Functions
