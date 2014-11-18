@@ -29,7 +29,7 @@
 [github]
 	user = audreyschwarz
 [push]
-	default = matching
+	default = simple
 [merge]
 	tool = vimdiff
 [filter "media"]
