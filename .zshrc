@@ -17,7 +17,7 @@ alias brake="bundle exec rake"
 alias gs="git status"
 
 # Remote pairing aliases
-alias rps="sudo rm -rf /tmp/pairing* && tmux -S /tmp/pairing new -s pairing"
+alias rps="sudo rm -rf /tmp/pairing*; tmux -S /tmp/pairing new -s pairing"
 alias remote_pairing_start_session="rps"
 alias rpss="chgrp pairing /tmp/pairing"
 alias remote_pairing_share_socket="rpss"
