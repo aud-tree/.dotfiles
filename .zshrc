@@ -15,6 +15,7 @@ alias b="bundle exec"
 alias bil="bundle install"
 alias brake="bundle exec rake"
 alias gs="git status"
+alias emacs="TERM=xterm emacs"
 
 # Remote pairing aliases
 alias rps="sudo rm -rf /tmp/pairing*; tmux -S /tmp/pairing new -s pairing"
