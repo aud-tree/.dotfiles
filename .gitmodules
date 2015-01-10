@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/vim-puppet"]
 	path = .vim/bundle/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git
+[submodule ".vim/bundle/vim-tmux-navigator"]
+	path = .vim/bundle/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
