@@ -11,10 +11,12 @@ nnoremap <silent> <leader>ff :CtrlP<cr>
 nnoremap <silent> <leader>fb :CtrlPBuffer<cr>
 nnoremap <silent> <leader>ww :FixWhitespace<cr>
 nnoremap <silent> <leader>rt :TagbarToggle<cr>
-nnoremap <silent> <leader>rb :VroomRunTestFile<cr>
 nnoremap <silent> <leader>rf :VroomRunNearestTest<cr>
+nnoremap <silent> <leader>rb :VroomRunTestFile<cr>
 nnoremap <silent> <leader>rq :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>rp :RainbowParenthesesLoadRound<cr> :RainbowParenthesesLoadSquare<cr> :RainbowParenthesesLoadBraces<cr> :RainbowParenthesesActivate<cr>hhh
+nnoremap <silent> <leader>ra :Require!<cr>
+nnoremap <silent> <leader>r1 :Require<cr>
 
 " Convenience mappings
 nnoremap <silent> <leader><cr>  :tabnew<cr>
