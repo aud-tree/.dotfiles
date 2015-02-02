@@ -28,6 +28,7 @@ nnoremap <silent> <leader>ev    :vsplit $MYVIMRC<cr>
 nnoremap          <leader>sv    :source $MYVIMRC<cr>
 inoremap          jj            <esc>l
 inoremap          jk            <esc>l
+inoremap          <esc>         <esc>l
 inoremap          <c-l>         <Space>=><Space>
 inoremap          OA          <up>
 inoremap          OB          <down>
@@ -126,5 +127,7 @@ augroup RainbowParens
   autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadSquare
   autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadBraces
 augroup END
+
+autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 " Functions
