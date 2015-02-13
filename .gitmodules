@@ -91,3 +91,9 @@
 [submodule ".vim/bundle/vim-sexp-mappings-for-regular-people"]
 	path = .vim/bundle/vim-sexp-mappings-for-regular-people
 	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
+[submodule ".vim/bundle/ruby-matchit"]
+	path = .vim/bundle/ruby-matchit
+	url = https://github.com/vim-scripts/ruby-matchit.git
+[submodule ".vim/bundle/vim-rubocop"]
+	path = .vim/bundle/vim-rubocop
+	url = https://github.com/ngmy/vim-rubocop.git
