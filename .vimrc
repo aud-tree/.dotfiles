@@ -104,6 +104,7 @@ let g:ctrlp_cache_dir = "/tmp/"
 let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\|.tmp\)$'
                             \ }
 let g:vroom_use_vimux = 1
+let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
