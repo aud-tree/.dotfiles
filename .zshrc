@@ -9,13 +9,18 @@ ZSH_THEME="robbyrussell"
 TERM="xterm-256color"
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOQUIT=false
+setopt BRACE_CCL
 
 # Useful aliases
 alias b="bundle exec"
 alias bil="bundle install"
 alias brake="bundle exec rake"
 alias gs="git status"
+alias gdc="git diff --cached"
 alias emacs="TERM=xterm emacs"
+
+# SWA aliases
+alias gw="./gradlew"
 
 # Remote pairing aliases
 alias rps="sudo rm -rf /tmp/pairing*; tmux -S /tmp/pairing new -s pairing"
@@ -72,3 +77,10 @@ eval "$(rbenv init -)"
 # Setup Java
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+# Autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+# EC2
+export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.4.0
+export PATH=$PATH:$EC2_HOME/bin

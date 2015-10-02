@@ -13,7 +13,7 @@ nnoremap <silent> <leader>nt :NERDTreeToggle<cr><c-w>=
 nnoremap <silent> <leader>ff :CtrlP<cr>
 nnoremap <silent> <leader>fb :CtrlPBuffer<cr>
 nnoremap <silent> <leader>ww :FixWhitespace<cr>
-nnoremap <silent> <leader>rt :TagbarToggle<cr>
+nnoremap <silent> <leader>rt :call g:Rebuild_tags()<cr>
 nnoremap <silent> <leader>rf :VroomRunNearestTest<cr>
 nnoremap <silent> <leader>rb :VroomRunTestFile<cr>
 nnoremap <silent> <leader>rq :VimuxCloseRunner<cr>
@@ -99,9 +99,10 @@ let g:syntastic_quiet_messages = { "level": "warnings",
                                  \ "regex": 'proprietary attribute',
                                  \ "file":  '.*\.html$' }
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_switch_buffer = 0
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = "/tmp/"
-let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\|.tmp\)$'
+let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\|.tmp\|.bundle\)$'
                             \ }
 let g:vroom_use_vimux = 1
 let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
@@ -134,6 +135,12 @@ augroup RainbowParens
   autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadBraces
 augroup END
 
-autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4 foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*/\\?\\\*'
 
 " Functions
+function! g:Rebuild_tags()
+  call system('rm tags')
+  echom 'ctags: rebuilding... please be patient'
+  let g:cmd_output=system('ctags -R .')
+  echo 'done'
+endfunction
