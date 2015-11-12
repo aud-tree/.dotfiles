@@ -15,6 +15,7 @@ setopt BRACE_CCL
 alias b="bundle exec"
 alias bil="bundle install"
 alias brake="bundle exec rake"
+alias brails="bundle exec rails"
 alias gs="git status"
 alias gdc="git diff --cached"
 alias emacs="TERM=xterm emacs"
