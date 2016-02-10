@@ -94,6 +94,7 @@ set background=dark
 colorscheme solarized
 
 " Plugin settings
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_quiet_messages = { "level": "warnings",
                                  \ "type":  "style",
                                  \ "regex": 'proprietary attribute',
@@ -135,7 +136,7 @@ augroup RainbowParens
   autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadBraces
 augroup END
 
-autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4 foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*/\\?\\\*'
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2 foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*/\\?\\\*'
 
 " Functions
 function! g:Rebuild_tags()
