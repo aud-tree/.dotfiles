@@ -6,10 +6,12 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
-TERM="xterm-256color"
 ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOQUIT=false
 setopt BRACE_CCL
+
+# Make tmux recognize 256 colors
+alias tmux="tmux -2"
 
 # Useful aliases
 alias b="bundle exec"
@@ -20,10 +22,6 @@ alias brails="bundle exec rails"
 alias gs="git status"
 alias gdc="git diff --cached"
 alias gpr="git pull --rebase"
-alias emacs="TERM=xterm emacs"
-
-# SWA aliases
-alias gw="./gradlew"
 
 # Docker aliases
 alias dc="docker-compose"
@@ -72,21 +70,15 @@ alias fix_oh_my_zsh="sudo chown $USER $ZSH/.git/logs/refs/remotes/origin/master"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby tmux)
+plugins=(git ruby)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$PATH
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Setup RbEnv
 eval "$(rbenv init -)"
 
-# Setup Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
-
-# Setup Android SDK
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
 # Autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+# [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh

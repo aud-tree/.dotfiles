@@ -1,8 +1,30 @@
 set nocompatible
 
-" Pathogen init
-source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" vim-plug init
+call plug#begin('~/.vim/plugged')
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'junegunn/rainbow_parentheses'
+Plug 'junegunn/vim-easy-align'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'mattn/emmet-vim'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'vim-ruby/vim-ruby'
+Plug 'easymotion/vim-easymotion'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'mxw/vim-jsx', { 'for': 'jsx' }
+Plug 'ervandew/supertab'
+Plug 'chriskempson/base16-vim'
+
+call plug#end()
 
 " Macros
 runtime macros/matchit.vim
@@ -90,8 +112,10 @@ set statusline+=%P                        " percentage of file
 
 " Colorscheme settings
 syntax enable
+let base16colorspace=256  " Access colors present in 256 colorspace
+set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme base16-default-dark
 
 " Plugin settings
 let g:syntastic_javascript_checkers = ['eslint']
@@ -105,36 +129,15 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = "/tmp/"
 let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\|.tmp\|.bundle\)$'
                             \ }
-let g:vroom_use_vimux = 1
-let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['129',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-" 129 = purple
 
 " Autocommands (restart vim to apply changes)
-augroup RainbowParens
-  autocmd!
-  autocmd VimEnter * RainbowParenthesesToggle
-  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadRound
-  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadSquare
-  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadBraces
-augroup END
+"augroup RainbowParens
+"  autocmd!
+"  autocmd VimEnter * RainbowParenthesesToggle
+"  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadRound
+"  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadSquare
+"  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadBraces
+"augroup END
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2 foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*/\\?\\\*'
 
