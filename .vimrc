@@ -4,10 +4,10 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack'
+Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'junegunn/rainbow_parentheses'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-endwise'
@@ -22,6 +22,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'ervandew/supertab'
+Plug 'othree/yajs.vim'
 Plug 'chriskempson/base16-vim'
 
 call plug#end()
