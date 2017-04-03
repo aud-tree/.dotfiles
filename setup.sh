@@ -11,6 +11,14 @@ for dotfile in .gitconfig .zshrc .tmux.conf .vimrc .config/redshift.conf; do
   ln -s ~/.dotfiles/$dotfile ~/$dotfile
 done
 
+# Install oh-my-zsh
+if [ -e ~/.oh-my-zsh ]; then
+  echo "oh-my-zsh already installed."
+else
+  echo "Installing oh-my-zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
 # Install vim-plug
 if [ -e ~/.vim/autoload/plug.vim ]; then
   echo "vim-plug already installed."
@@ -35,6 +43,14 @@ if [ -e ~/.rbenv/plugins/ruby-build ]; then
 else
   echo "Installing ruby-build..."
   git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+fi
+
+# Install nvm
+if [ -e ~/.oh-my-zsh/custom/plugins/zsh-nvm ]; then
+  echo "nvm already installed."
+else
+  echo "Installing nvm..."
+  git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 fi
 
 echo "Done!"

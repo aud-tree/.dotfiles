@@ -24,6 +24,8 @@ Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'ervandew/supertab'
 Plug 'othree/yajs.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'othree/html5.vim'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -50,9 +52,8 @@ nnoremap <silent> <leader>]     gt
 nnoremap <silent> <leader>[     gT
 nnoremap <silent> <leader>nh    :nohls<cr>
 nnoremap <silent> <leader>rr    :set relativenumber!<cr>
-nnoremap <silent> <leader>ev    :vsplit $MYVIMRC<cr>
+nnoremap <silent> <leader>ev    :e $MYVIMRC<cr>
 nnoremap          <leader>sv    :source $MYVIMRC<cr>
-inoremap          jj            <esc>l
 inoremap          jk            <esc>l
 inoremap          <esc>         <esc>l
 inoremap          <c-l>         <Space>=><Space>
@@ -120,10 +121,14 @@ colorscheme base16-default-dark
 
 " Plugin settings
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_scss_checkers = []
 let g:syntastic_quiet_messages = { "level": "warnings",
                                  \ "type":  "style",
                                  \ "regex": 'proprietary attribute',
                                  \ "file":  '.*\.html$' }
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:go_list_type = "quickfix"
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_clear_cache_on_exit = 0
@@ -140,7 +145,7 @@ let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\|.tmp\|.bundle\)$'
 "  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadBraces
 "augroup END
 
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2 foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*/\\?\\\*'
+au FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2 foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*/\\?\\\*'
 
 " Functions
 function! g:Rebuild_tags()

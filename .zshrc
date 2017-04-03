@@ -9,6 +9,7 @@ ZSH_THEME="robbyrussell"
 ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOQUIT=false
 setopt BRACE_CCL
+setopt GLOB
 
 # Make tmux recognize 256 colors
 alias tmux="tmux -2"
@@ -70,7 +71,7 @@ alias fix_oh_my_zsh="sudo chown $USER $ZSH/.git/logs/refs/remotes/origin/master"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby)
+plugins=(git ruby zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,6 +81,10 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # Setup RbEnv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# Setup Golang
+export GOPATH="$HOME/code/go"
+export PATH="$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin"
 
 # Autojump
 # [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
