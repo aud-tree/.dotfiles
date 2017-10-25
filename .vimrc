@@ -7,7 +7,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-endwise'
@@ -22,7 +22,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'ervandew/supertab'
-Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'chriskempson/base16-vim'
 Plug 'othree/html5.vim'
 Plug 'fatih/vim-go'
@@ -99,6 +99,7 @@ set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set ignorecase
 set smartcase
+set conceallevel=1
 
 " Status line
 set laststatus=2
@@ -121,6 +122,8 @@ colorscheme base16-default-dark
 
 " Plugin settings
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+"let g:syntastic_debug = 3
 let g:syntastic_scss_checkers = []
 let g:syntastic_quiet_messages = { "level": "warnings",
                                  \ "type":  "style",
@@ -133,17 +136,16 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = "/tmp/"
-let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\|.tmp\|.bundle\)$'
-                            \ }
+let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\|.tmp\|.bundle\)$' }
 
 " Autocommands (restart vim to apply changes)
-"augroup RainbowParens
-"  autocmd!
-"  autocmd VimEnter * RainbowParenthesesToggle
-"  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadRound
-"  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadSquare
-"  autocmd Syntax,BufEnter,BufAdd * RainbowParenthesesLoadBraces
-"augroup END
+augroup RainbowParens
+  autocmd!
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
+augroup END
 
 au FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2 foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*/\\?\\\*'
 
