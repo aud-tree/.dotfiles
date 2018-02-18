@@ -19,4 +19,5 @@ zsh customizations to make things nicer.
 - tmux
 - ack
 - exuberant ctags
+- xclip
 - probably some other stuff I'll add to this list when things break

@@ -10,6 +10,8 @@
 [core]
 	excludesfile = /home/audrey/.gitignore_global
 	editor = vim
+	autocrlf = false
+	eol = lf
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
