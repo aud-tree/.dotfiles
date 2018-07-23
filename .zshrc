@@ -23,6 +23,7 @@ alias brails="bundle exec rails"
 alias gs="git status"
 alias gdc="git diff --cached"
 alias gpr="git pull --rebase"
+alias tignm="tig --no-merges"
 
 # Docker aliases
 alias dc="docker-compose"
@@ -88,3 +89,9 @@ export PATH="$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin"
 
 # Autojump
 # [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+# Homebrew needs this since it can't symlink over the system openssl
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

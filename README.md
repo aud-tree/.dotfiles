@@ -14,10 +14,8 @@ zsh customizations to make things nicer.
 - oh-my-zsh
 - vim
 - rbenv with ruby-build
-- base16 colorscheme (varies by terminal emulator)
-- [base16-shell](https://github.com/chriskempson/base16-shell) (if terminal doesn't support 256 colors natively)
 - tmux
-- ack
+- ag (the silver searcher)
 - exuberant ctags
-- xclip
+- xclip (linux only)
 - probably some other stuff I'll add to this list when things break

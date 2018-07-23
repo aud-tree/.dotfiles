@@ -23,9 +23,10 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'ervandew/supertab'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'chriskempson/base16-vim'
 Plug 'othree/html5.vim'
 Plug 'fatih/vim-go'
+"Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
@@ -39,12 +40,11 @@ nnoremap <silent> <leader>ff :CtrlP<cr>
 nnoremap <silent> <leader>fb :CtrlPBuffer<cr>
 nnoremap <silent> <leader>ww :FixWhitespace<cr>
 nnoremap <silent> <leader>rt :call g:Rebuild_tags()<cr>
-nnoremap <silent> <leader>rf :VroomRunNearestTest<cr>
-nnoremap <silent> <leader>rb :VroomRunTestFile<cr>
-nnoremap <silent> <leader>rq :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>rp :RainbowParenthesesLoadRound<cr> :RainbowParenthesesLoadSquare<cr> :RainbowParenthesesLoadBraces<cr> :RainbowParenthesesActivate<cr>hhh
 nnoremap <silent> <leader>ra :Require!<cr>
 nnoremap <silent> <leader>r1 :Require<cr>
+nnoremap <silent> <leader>rf :Dispatch spring m %:<c-r>=line('.')<cr><cr>
+nnoremap <silent> <leader>rb :Dispatch spring m %<cr>
 
 " Convenience mappings
 nnoremap <silent> <leader><cr>  :tabnew<cr>
@@ -69,6 +69,10 @@ nnoremap          <c-h>         <c-w>h
 nnoremap          <c-j>         <c-w>j
 nnoremap          <c-k>         <c-w>k
 nnoremap          <c-l>         <c-w>l
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" System copy/paste with <C-c>
+vnoremap <c-c> "*y
 
 " Abbreviations
 cnoreabbrev Q q
@@ -100,6 +104,8 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set ignorecase
 set smartcase
 set conceallevel=1
+set fillchars+=vert:\ 
+" Disable the pipe characters in pane separators
 
 " Status line
 set laststatus=2
@@ -115,10 +121,13 @@ set statusline+=%P                        " percentage of file
 
 " Colorscheme settings
 syntax enable
-let base16colorspace=256  " Access colors present in 256 colorspace
-set t_Co=256
+"let base16colorspace=256  " Access colors present in 256 colorspace
+"set t_Co=256
+set termguicolors
 set background=dark
-colorscheme base16-default-dark
+"let g:gruvbox_vert_split = "bg2"
+"colorscheme gruvbox
+colorscheme solarized8
 
 " Plugin settings
 let g:syntastic_javascript_checkers = ['eslint']
@@ -137,6 +146,18 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = "/tmp/"
 let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\|.tmp\|.bundle\)$' }
+let g:ctrlp_match_window = 'min:4,max:10,results:100'
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 " Autocommands (restart vim to apply changes)
 augroup RainbowParens
