@@ -11,9 +11,6 @@ ZSH_TMUX_AUTOQUIT=false
 setopt BRACE_CCL
 setopt GLOB
 
-# Make tmux recognize 256 colors
-alias tmux="tmux -2"
-
 # Useful aliases
 alias b="bundle exec"
 alias bil="bundle install"

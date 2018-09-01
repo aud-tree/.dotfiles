@@ -25,8 +25,10 @@ Plug 'ervandew/supertab'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/html5.vim'
 Plug 'fatih/vim-go'
-"Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
+Plug 'sheerun/vim-polyglot'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -43,11 +45,12 @@ nnoremap <silent> <leader>rt :call g:Rebuild_tags()<cr>
 nnoremap <silent> <leader>rp :RainbowParenthesesLoadRound<cr> :RainbowParenthesesLoadSquare<cr> :RainbowParenthesesLoadBraces<cr> :RainbowParenthesesActivate<cr>hhh
 nnoremap <silent> <leader>ra :Require!<cr>
 nnoremap <silent> <leader>r1 :Require<cr>
-nnoremap <silent> <leader>rf :Dispatch spring m %:<c-r>=line('.')<cr><cr>
-nnoremap <silent> <leader>rb :Dispatch spring m %<cr>
+nnoremap <silent> <leader>rf :Dispatch bundle exec spring m %:<c-r>=line('.')<cr><cr>
+nnoremap <silent> <leader>rb :Dispatch bundle exec spring m %<cr>
 
 " Convenience mappings
 nnoremap <silent> <leader><cr>  :tabnew<cr>
+nnoremap <silent> <leader><bs>  :tabclose<cr>
 nnoremap <silent> <leader>]     gt
 nnoremap <silent> <leader>[     gT
 nnoremap <silent> <leader>nh    :nohls<cr>
@@ -73,6 +76,14 @@ nnoremap          <c-l>         <c-w>l
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " System copy/paste with <C-c>
 vnoremap <c-c> "*y
+" Search with :Ag
+fu! AgSearch(...)
+  let cmd = "grep! " . a:1 . (a:0 > 1 ? " " . a:2 : "")
+  silent exec cmd
+  copen
+  redraw!
+endfunction
+command! -nargs=* Ag :call AgSearch(<f-args>)
 
 " Abbreviations
 cnoreabbrev Q q
@@ -104,8 +115,8 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set ignorecase
 set smartcase
 set conceallevel=1
-set fillchars+=vert:\ 
 " Disable the pipe characters in pane separators
+set fillchars+=vert:\ 
 
 " Status line
 set laststatus=2
@@ -123,13 +134,19 @@ set statusline+=%P                        " percentage of file
 syntax enable
 "let base16colorspace=256  " Access colors present in 256 colorspace
 "set t_Co=256
-set termguicolors
+if (has("termguicolors"))
+  set termguicolors
+endif
 set background=dark
 "let g:gruvbox_vert_split = "bg2"
 "colorscheme gruvbox
-colorscheme solarized8
+"colorscheme solarized8
+colorscheme onedark
 
 " Plugin settings
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtInsert("c")':          ['<c-]>'],
+\ }
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 "let g:syntastic_debug = 3
@@ -147,6 +164,8 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = "/tmp/"
 let g:ctrlp_custom_ignore = { 'dir':  '\(node_modules\|.git\|.tmp\|.bundle\)$' }
 let g:ctrlp_match_window = 'min:4,max:10,results:100'
+let g:ctrlp_lazy_update = 1
+let g:ctrlp_show_hidden = 1
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
